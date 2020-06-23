@@ -26,4 +26,4 @@ if __name__== "__main__":
     model.eval()
     text1 = "Why Indian girls go crazy about marrying Shri. Rahul Gandhi ji?"
     result = predict(model, text1)
-    print("The result for {} is {}".format(text1, result))
+    print("The result for '{}' is {}".format(text1, result))
