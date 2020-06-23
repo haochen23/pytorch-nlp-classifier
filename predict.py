@@ -24,6 +24,10 @@ if __name__== "__main__":
     path = "./output/best_model.pt"
     model = torch.load(path)
     model.eval()
-    text1 = "Why Indian girls go crazy about marrying Shri. Rahul Gandhi ji?"
+    text1 = "Why Chinese girls go crazy about marrying Jack Ma?"
     result = predict(model, text1)
     print("The result for '{}' is {}".format(text1, result))
+    
+    text2 = "Why peole spend money on Lottery?"
+    result = predict(model, text2)
+    print("The result for '{}' is {}".format(text2, result))
