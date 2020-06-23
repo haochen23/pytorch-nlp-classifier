@@ -1,6 +1,7 @@
 import spacy
 import torch
 from model.classifier import classifer
+from utils import load_data
 
 nlp=spacy.load("en")
 
