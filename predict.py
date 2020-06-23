@@ -4,6 +4,14 @@ from model.classifier import classifer
 from utils import load_data
 import config
 import dill
+import argparse
+
+ap = argparse.ArgumentParser()
+ap.add_argument("-q", "--question", type=str, 
+                default="Why peole spend money on Lottery?",
+                help="Question to be tested")
+
+args = vars(ap.parse_args())
 
 nlp=spacy.load("en")
 
@@ -24,13 +32,13 @@ if __name__== "__main__":
     path = "./output/best_model.pt"
     model = torch.load(path)
     model.eval()
-    text1 = "Why Chinese girls go crazy about marrying Jack Ma?"
-    result = predict(model, text1)
+    sentence = args["question"]
+    result = predict(model, sentence)
     print("Results close to 1 represent insincere questions.")
     print("Results close to 0 represent sincere questions.")
     print('------')
-    print("The result for '{}' is {}".format(text1, result))
+    print("The result for '{}' is {}".format(sentence, result))
     
-    text2 = "Why peole spend money on Lottery?"
-    result = predict(model, text2)
-    print("The result for '{}' is {}".format(text2, result))
+    # text2 = "Why peole spend money on Lottery?"
+    # result = predict(model, text2)
+    # print("The result for '{}' is {}".format(text2, result))
