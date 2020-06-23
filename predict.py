@@ -7,7 +7,7 @@ import dill
 
 nlp=spacy.load("en")
 
-with open("model/TEXT.Field", "rb") as f:
+with open("./output/TEXT.Field", "rb") as f:
     TEXT = dill.load(f)
 
 def predict(model, sentence):
