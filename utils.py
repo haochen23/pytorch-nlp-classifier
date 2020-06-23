@@ -41,7 +41,7 @@ def load_data(file_path):
     device = config.device
     train_iterator, valid_iterator = data.BucketIterator.splits(
         (train_data, valid_data),
-        batch_size = BATCH_SIZE,
+        batch_size = batch_size,
         sort_key = lambda x: len(x.text),
         sort_within_batch = True,
         device=device
