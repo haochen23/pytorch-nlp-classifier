@@ -30,13 +30,13 @@ def load_data(file_path):
     print("Size of TEXT vocabulary:",len(TEXT.vocab))
 
     #No. of unique tokens in label
-    print("Size of LABEL vocabulary:",len(LABEL.vocab))
+    # print("Size of LABEL vocabulary:",len(LABEL.vocab))
 
     #Commonly used words
-    print(TEXT.vocab.freqs.most_common(10))
+    # print(TEXT.vocab.freqs.most_common(10))
 
     #Word dictionary
-    print(TEXT.vocab.stoi)
+    # print(TEXT.vocab.stoi)
     batch_size = config.BATCH_SIZE
     device = config.device
     train_iterator, valid_iterator = data.BucketIterator.splits(
