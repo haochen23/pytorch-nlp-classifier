@@ -26,6 +26,9 @@ if __name__== "__main__":
     model.eval()
     text1 = "Why Chinese girls go crazy about marrying Jack Ma?"
     result = predict(model, text1)
+    print("Results close to 1 represent insincere questions.")
+    print("Results close to 0 represent sincere questions.")
+    print('------')
     print("The result for '{}' is {}".format(text1, result))
     
     text2 = "Why peole spend money on Lottery?"
