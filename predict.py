@@ -4,6 +4,8 @@ from model.classifier import classifer
 
 nlp=spacy.load("en")
 
+_, _, TEXT, _ = load_data("./data/quora_labeled.csv")
+
 def predict(model, sentence):
     tokenized = [tok.text for tok in nlp.tokenizer(sentence)]  #tokenize the sentence 
     indexed = [TEXT.vocab.stoi[t] for t in tokenized]          #convert to integer sequence
