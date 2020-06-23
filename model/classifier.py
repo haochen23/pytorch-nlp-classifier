@@ -1,5 +1,5 @@
 import torch.nn as nn
-
+import torch
 class classifer(nn.Module):
     #define all the layers used in the model
     def __init__(self, vocab_size, embedding_dim, hidden_dim, output_dim, n_layers, 
