@@ -4,7 +4,7 @@ from model.classifier import classifer
 import torch 
 from torchtext import data
 import torch.optim as optim
-
+import torch.nn as nn
 
 # count trainable parameters
 def count_parameters(model):
