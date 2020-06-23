@@ -2,16 +2,19 @@ import spacy
 import torch
 from model.classifier import classifer
 from utils import load_data
+import config
+import dill
 
 nlp=spacy.load("en")
 
-_, _, TEXT, _ = load_data("./data/quora_labeled.csv")
+with open("model/TEXT.Field", "rb") as f:
+    TEXT = dill.load(f)
 
 def predict(model, sentence):
     tokenized = [tok.text for tok in nlp.tokenizer(sentence)]  #tokenize the sentence 
     indexed = [TEXT.vocab.stoi[t] for t in tokenized]          #convert to integer sequence
     length = [len(indexed)]                                    #compute no. of words
-    tensor = torch.LongTensor(indexed).to(device)              #convert to tensor
+    tensor = torch.LongTensor(indexed).to(config.device)              #convert to tensor
     tensor = tensor.unsqueeze(1).T                             #reshape in form of batch,no. of words
     length_tensor = torch.LongTensor(length)                   #convert to tensor
     prediction = model(tensor, length_tensor)                  #prediction 

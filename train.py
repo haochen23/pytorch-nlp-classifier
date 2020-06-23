@@ -5,6 +5,7 @@ import torch
 from torchtext import data
 import torch.optim as optim
 import torch.nn as nn
+import dill
 
 # count trainable parameters
 def count_parameters(model):
@@ -126,3 +127,7 @@ if __name__ == "__main__":
         print("Epoch {}/{}:".format(epoch+1, N_EPOCHS))
         print(f'\tTrain Loss: {train_loss:.3f} | Train Acc: {train_acc*100:.2f}%')
         print(f'\t Val. Loss: {valid_loss:.3f} |  Val. Acc: {valid_acc*100:.2f}%')
+
+    # save TEXT field for prediction
+    with open("./output/TEXT.Field", "wb") as f:
+        dill.dump(TEXT, f)
